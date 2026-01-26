@@ -6,6 +6,7 @@ const TodoList = ({
   moveToTrash,
   restoreTodo,
   deleteForever,
+  editTodo,
   activeTab,
 }) => {
   return (
@@ -20,6 +21,7 @@ const TodoList = ({
             restoreTodo={restoreTodo}
             deleteForever={deleteForever}
             activeTab={activeTab}
+            editTodo={editTodo}
           />
         ))}
       </div>

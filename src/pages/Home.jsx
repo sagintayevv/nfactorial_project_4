@@ -55,10 +55,18 @@ const Home = () => {
     setTodos((prev) => prev.filter((todo) => todo.id !== id));
   };
 
+  const editTodo = (id, newTitle) => {
+    setTodos((prev) =>
+      prev.map((todo) =>
+        todo.id === id ? { ...todo, title: newTitle } : todo,
+      ),
+    );
+  };
+
   const filteredTodos = todos.filter((todo) => {
     switch (activeTab) {
       case "todo":
-        return !todo.deleted;
+        return !todo.completed && !todo.deleted;
       case "done":
         return todo.completed && !todo.deleted;
       case "trash":
@@ -91,6 +99,7 @@ const Home = () => {
             activeTab={activeTab}
             restoreTodo={restoreTodo}
             deleteForever={deleteForever}
+            editTodo={editTodo}
           />
         </div>
       </div>
