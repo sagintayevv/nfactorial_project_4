@@ -21,31 +21,31 @@ const Home = () => {
     localStorage.setItem("data", JSON.stringify(todos));
   }, [todos]);
 
-  const moveToTrash = (id) => {
-    setTodos((prev) =>
-      prev.map((todo) => (todo.id === id ? { ...todo, deleted: true } : todo)),
-    );
-  };
+  // const moveToTrash = (id) => {
+  //   setTodos((prev) =>
+  //     prev.map((todo) => (todo.id === id ? { ...todo, deleted: true } : todo)),
+  //   );
+  // };
 
-  const restoreTodo = (id) => {
-    setTodos((prev) =>
-      prev.map((todo) =>
-        todo.id === id ? { ...todo, deleted: false, completed: false } : todo,
-      ),
-    );
-  };
+  // const restoreTodo = (id) => {
+  //   setTodos((prev) =>
+  //     prev.map((todo) =>
+  //       todo.id === id ? { ...todo, deleted: false, completed: false } : todo,
+  //     ),
+  //   );
+  // };
 
-  const deleteForever = (id) => {
-    setTodos((prev) => prev.filter((todo) => todo.id !== id));
-  };
+  // const deleteForever = (id) => {
+  //   setTodos((prev) => prev.filter((todo) => todo.id !== id));
+  // };
 
-  const editTodo = (id, newTitle) => {
-    setTodos((prev) =>
-      prev.map((todo) =>
-        todo.id === id ? { ...todo, title: newTitle } : todo,
-      ),
-    );
-  };
+  // const editTodo = (id, newTitle) => {
+  //   setTodos((prev) =>
+  //     prev.map((todo) =>
+  //       todo.id === id ? { ...todo, title: newTitle } : todo,
+  //     ),
+  //   );
+  // };
 
   const filteredTodos = todos.filter((todo) => {
     switch (activeTab) {
@@ -82,12 +82,8 @@ const Home = () => {
           </div>
           <TodoList
             data={filteredTodos}
-            onToggle={(id) => dispatch({ type: "TOGGLE", payload: id })}
-            moveToTrash={moveToTrash}
+            dispatch={dispatch}
             activeTab={activeTab}
-            restoreTodo={restoreTodo}
-            deleteForever={deleteForever}
-            editTodo={editTodo}
           />
         </div>
       </div>
