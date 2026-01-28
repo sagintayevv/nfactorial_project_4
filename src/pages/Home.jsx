@@ -21,32 +21,6 @@ const Home = () => {
     localStorage.setItem("data", JSON.stringify(todos));
   }, [todos]);
 
-  // const moveToTrash = (id) => {
-  //   setTodos((prev) =>
-  //     prev.map((todo) => (todo.id === id ? { ...todo, deleted: true } : todo)),
-  //   );
-  // };
-
-  // const restoreTodo = (id) => {
-  //   setTodos((prev) =>
-  //     prev.map((todo) =>
-  //       todo.id === id ? { ...todo, deleted: false, completed: false } : todo,
-  //     ),
-  //   );
-  // };
-
-  // const deleteForever = (id) => {
-  //   setTodos((prev) => prev.filter((todo) => todo.id !== id));
-  // };
-
-  // const editTodo = (id, newTitle) => {
-  //   setTodos((prev) =>
-  //     prev.map((todo) =>
-  //       todo.id === id ? { ...todo, title: newTitle } : todo,
-  //     ),
-  //   );
-  // };
-
   const filteredTodos = todos.filter((todo) => {
     switch (activeTab) {
       case "todo":
@@ -60,13 +34,13 @@ const Home = () => {
 
   return (
     <>
-      <div className="container m-auto">
+      <div className="container mx-auto px-8">
         <h1 className="text-2xl font-bold mt-20 ">Simple To Do List</h1>
         <p className="text-xs mt-5 ">
           Today is awesome day. The weather is awesome, you are awesome too!
         </p>
 
-        <div className="main flex items-center justify-between mt-30">
+        <div className="main flex flex-col gap-2 sm:flex-row justify-between mt-16">
           <Tabs activeTab={activeTab} onChange={setActiveTab} />
           <Button onClick={() => setOpen(true)} />
           <Modal

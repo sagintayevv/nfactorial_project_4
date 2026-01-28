@@ -30,7 +30,7 @@ const TodoItem = ({
       )}
 
       <div
-        className={`relative w-lg flex items-center gap-2 ${
+        className={`relative w-full flex items-center gap-2 ${
           todo.completed ? "bg-gray-200 text-gray-400" : ""
         }`}
       >
@@ -117,7 +117,7 @@ const TodoItem = ({
             className="border rounded-md px-2 py-1 text-sm w-50"
           />
         ) : (
-          <span className={`w-lg ${todo.completed ? "line-through" : ""}`}>
+          <span className={`flex-1 ${todo.completed ? "line-through" : ""}`}>
             {todo.title}
           </span>
         )}
